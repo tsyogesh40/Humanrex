@@ -23,7 +23,7 @@
 </div>
 
 <div class="container">
-    <form action="index.php/Welcome/register" method="POST">
+    <form action="<?=base_url()?>user/register" method="POST">
         <div class="form-group">
             <label for="usr">Name:</label>
             <input type="text" class="form-control" placeholder="Enter Name" name="name">
