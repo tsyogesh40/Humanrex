@@ -36,9 +36,23 @@ class User extends CI_Controller
     $result=$this->user_model->login($user_login['name'],$user_login['password']);
       if($result)
       {
-
         $this->session->set_flashdata('success_msg', 'Login Successful!');
-        $this->load->view('login');
+        $role=$result['priority'];
+        $this->session->set_userdata('name',$result['name']);
+       $this->session->set_userdata('staff_id',$result['staff_id']);
+       $this->session->set_userdata('username',$result['username']);
+       $this->session->set_userdata('priority',$result['priority']);
+       $this->session->set_userdata('last_login',$result['last_login']);
+        $this->session->set_userdata('email',$result['email']);
+
+        if($role=='A')
+        {
+        $this->load->view('admin/admin');
+        }
+        else if($role=='S')
+        {
+          $this->load->view('staffs/staffs');  
+        }
       }
       else {
         $this->session->set_flashdata('error_msg', 'Wrong Username or Password.');
