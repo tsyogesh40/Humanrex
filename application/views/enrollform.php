@@ -23,20 +23,20 @@
 </div>
 
 <div class="container">
-    <form action="index.php/Welcome/register" method="POST">
+    <form action="<?=base_url()?>user/register" method="POST">
         <div class="form-group">
             <label for="usr">Name:</label>
-            <input type="text" class="form-control" placeholder="Enter Name" name="name">
+            <input type="text" class="form-control" placeholder="Enter Your name" name="name">
         </div>
 
       <div class="form-group">
             <label for="usrid">Staff ID:</label>
-            <input type="text" class="form-control" id="usrid" name="staff_id">
+            <input type="text" class="form-control" id="usrid" placeholder="Enter Staff ID" name="staff_id">
         </div>
 
         <div class="form-group">
               <label for="usrid">Store ID:</label>
-              <input type="text" class="form-control" id="store_id" name="store_id">
+              <input type="text" class="form-control" id="store_id" placeholder="Enter Sensor Store ID" name="store_id">
           </div>
           <div class="form-group">
               <label for="finger">Finger Preference :</label>
@@ -64,7 +64,7 @@
 
           <div class="form-group">
             <label for="desg">Designation:</label>
-            <input type="text" class="form-control" id="desg" name="designation">
+            <input type="text" class="form-control" id="desg" placeholder="Enter Staff Designation" name="designation">
             </div>
 
         <div class="form-group">
@@ -85,17 +85,17 @@
 
           <div class="form-group">
                 <label for="phone">Phone Number:</label>
-                <input type="number" class="form-control" id="phone" name="phone">
+                <input type="number" class="form-control" id="phone" placeholder="Enter Phone Number" name="phone">
             </div>
 
             <div class="form-group">
                   <label for="phone">Email ID:</label>
-                  <input type="email" class="form-control" id="email" name="email">
+                  <input type="email" class="form-control" id="email" placeholder="Enter Email ID" name="email">
               </div>
 
               <div class="form-group">
                     <label for="doj">Date Of Joining:</label>
-                    <input type="date" class="form-control" id="doj" name="doj">
+                    <input type="date" class="form-control" placeholder="DOJ" id="doj" name="doj">
                 </div>
 
     <!--    <label for="finger">Select Finger :</label>

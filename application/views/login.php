@@ -24,6 +24,11 @@
 	<link rel="stylesheet" type="text/css" href="<?=base_url()?>assets/loginpage/css/util.css">
 	<link rel="stylesheet" type="text/css" href="<?=base_url()?>assets/loginpage/css/main.css">
 <!--===============================================================================================-->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+
 </head>
 
 <body>
@@ -36,10 +41,11 @@
           <br><br><h3>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Human Rex</h3>
 				</div>
 
-				<form class="login100-form validate-form">
+				<form class="login100-form validate-form" method="post" action="<?=base_url()?>user/login_verify">
 					<span class="login100-form-title">
 						Login Here !
 					</span>
+
 
 					<div class="wrap-input100 validate-input" data-validate = "Valid email is required: ex@abc.xyz">
 						<input class="input100" type="text" name="email" placeholder="Email">
@@ -50,12 +56,33 @@
 					</div>
 
 					<div class="wrap-input100 validate-input" data-validate = "Password is required">
-						<input class="input100" type="password" name="pass" placeholder="Password">
+						<input class="input100" type="password" name="pswd" placeholder="Password">
 						<span class="focus-input100"></span>
 						<span class="symbol-input100">
 							<i class="fa fa-lock" aria-hidden="true"></i>
 						</span>
 					</div>
+
+					<?php
+					//log message
+              $success_msg= $this->session->flashdata('success_msg');
+              $error_msg= $this->session->flashdata('error_msg');
+
+                  if($success_msg){
+                    ?>
+                    <div class="alert alert-success">
+                      <?php echo $success_msg; ?>
+                    </div>
+                  <?php
+                  }
+                  else if($error_msg){
+                    ?>
+                    <div class="alert alert-danger">
+                      <?php echo $error_msg; ?>
+                    </div>
+                    <?php
+                  }
+                ?>
 
 					<div class="container-login100-form-btn">
 						<button class="login100-form-btn">
