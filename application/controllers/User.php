@@ -22,11 +22,13 @@ class User extends CI_Controller
   {
     $this->load->view('enrollform');
   }
-//registration page
+  //login page
   public function login()
   {
     $this->load->view('login');
   }
+
+  //login verification
   public function login_verify()
   {
     $user_login=array(
@@ -47,11 +49,12 @@ class User extends CI_Controller
 
         if($role=='A')
         {
-        $this->load->view('admin/admin');
+        //$this->load->view('admin/admin');
+        redirect('user/admin_panel');
         }
         else if($role=='S')
         {
-          $this->load->view('staffs/staffs');  
+        redirect('user/staff_panel');
         }
       }
       else {
@@ -60,6 +63,17 @@ class User extends CI_Controller
       }
   }
 
+  //admin controller
+  public function admin_panel()
+  {
+      $this->load->view('admin/admin');
+  }
+
+  //staff admin_panel
+  public function staff_panel()
+  {
+    $this->load->view('staffs/staffs');
+  }
 
   //user registration form
   public function register()
