@@ -36,6 +36,7 @@ class User extends CI_Controller
       'password'=>$this->input->post('pswd')
     );
     $result=$this->user_model->login($user_login['name'],$user_login['password']);
+
       if($result)
       {
         $this->session->set_flashdata('success_msg', 'Login Successful!');
@@ -93,14 +94,27 @@ class User extends CI_Controller
           'email'=>$this->input->post('email'),
           'DOJ'=>$this->input->post('doj')
           );
-            print_r($data);
+
+          $credentials=array(
+            'name'=>$this->input->post('name'),
+            'staff_id'=>$this->input->post('staff_id'),
+            'password'=>$this->input->post('pswd'),
+            'priority'=>$this->input->post('role'),
+            'email'=>$this->input->post('email')
+          );
+            //print_r($data);
             //form validation
-              //name vaidation
+            $this->form_validation->set_error_delimiters('<div class="alert alert-primary">', '</div>');
+              //name validation
               $this->form_validation->set_rules('name', 'Username', 'required|trim|xss_clean');
-              //staff vaidation
+              //staff validation
               $this->form_validation->set_rules('staff_id','staffid','required|trim|xss_clean');
-              //Desigation vaidation
+              //store_id validation
+              $this->form_validation->set_rules('store_id','storeid','required|trim|xss_clean');
+              //Desigation validation
               $this->form_validation->set_rules('designation','designation','required|trim|xss_clean');
+              //password validation
+              $this->form_validation->set_rules('pswd','password','required|min_length[4]|max_length[20]|trim|xss_clean');
               //phone number validation
               $this->form_validation->set_rules('phone', 'phone_no', 'required|regex_match[/^[0-9]{10}$/]');
               //email validation
@@ -117,7 +131,9 @@ class User extends CI_Controller
                     if($id_check)
                     {
                       $this->user_model->staff_register($data);
+                      $this->user_model->user_credentials($credentials);
                       $this->session->set_flashdata('success_msg', 'Registered successfully.Now login to your account.');
+
                       redirect('user/login');
                     }
                     else{
@@ -126,7 +142,8 @@ class User extends CI_Controller
                 }
                 else
                  {
-                   redirect('user/enroll');
+                   $this->session->set_flashdata('error_msg', 'Error occured! Please try again!!');
+                   $this->load->view('enrollform');
                   }
 
   }

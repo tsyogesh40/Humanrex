@@ -24,20 +24,31 @@
 
 <div class="container">
     <form action="<?=base_url()?>user/register" method="POST">
+           <?php //echo validation_errors();?>
         <div class="form-group">
             <label for="usr">Name:</label>
-            <input type="text" class="form-control" placeholder="Enter Your name" name="name">
+            <input type="text" class="form-control" id="name" placeholder="Enter Your name" name="name">
         </div>
+        <!--Error message -->
+      <?php echo form_error('name');    ?>
 
       <div class="form-group">
             <label for="usrid">Staff ID:</label>
             <input type="text" class="form-control" id="usrid" placeholder="Enter Staff ID" name="staff_id">
         </div>
+        <?php echo form_error('staff_id');  ?>
+
+        <div class="form-group">
+              <label for="pswd">Password:</label>
+              <input type="password" class="form-control" id="pswd" placeholder="Enter Your password" name="pswd">
+        </div>
+        <?php echo form_error('pswd');  ?>
 
         <div class="form-group">
               <label for="usrid">Store ID:</label>
               <input type="text" class="form-control" id="store_id" placeholder="Enter Sensor Store ID" name="store_id">
           </div>
+          <?php echo form_error('store_id');  ?>
           <div class="form-group">
               <label for="finger">Finger Preference :</label>
                     <select class="form-control" name="finger_pref">
@@ -64,14 +75,24 @@
 
           <div class="form-group">
             <label for="desg">Designation:</label>
-            <input type="text" class="form-control" id="desg" placeholder="Enter Staff Designation" name="designation">
+            <input type="text" class="form-control" id="desg" placeholder="Enter Your Designation ( AP-III , AP-II)" name="designation">
             </div>
+            <?php echo form_error('designation');  ?>
 
         <div class="form-group">
             <label for="dept">Select Cadre :</label>
                   <select class="form-control" name="cadre">
                         <option value="T">Teaching</option>
                         <option value="NT">Non-Teaching</option>
+                  </select>
+        </div>
+
+        <div class="form-group">
+            <label for="role">Select Role:</label>
+                  <select class="form-control" name="role">
+                        <option value="P">Principal</option>
+                        <option value="H">HOD</option>
+                        <option value="s">Staffs</option>
                   </select>
         </div>
 
@@ -86,17 +107,18 @@
           <div class="form-group">
                 <label for="phone">Phone Number:</label>
                 <input type="number" class="form-control" id="phone" placeholder="Enter Phone Number" name="phone">
-            </div>
+            </div><?php echo form_error('phone');  ?>
 
             <div class="form-group">
                   <label for="phone">Email ID:</label>
                   <input type="email" class="form-control" id="email" placeholder="Enter Email ID" name="email">
-              </div>
+              </div><?php echo form_error('email');  ?>
 
               <div class="form-group">
                     <label for="doj">Date Of Joining:</label>
                     <input type="date" class="form-control" placeholder="DOJ" id="doj" name="doj">
                 </div>
+
 
     <!--    <label for="finger">Select Finger :</label>
         <div class="row">
