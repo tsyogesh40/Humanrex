@@ -22,11 +22,13 @@ class User extends CI_Controller
   {
     $this->load->view('enrollform');
   }
-//registration page
+  //login page
   public function login()
   {
     $this->load->view('login');
   }
+
+  //login verification
   public function login_verify()
   {
     $user_login=array(
@@ -36,9 +38,24 @@ class User extends CI_Controller
     $result=$this->user_model->login($user_login['name'],$user_login['password']);
       if($result)
       {
-
         $this->session->set_flashdata('success_msg', 'Login Successful!');
-        $this->load->view('login');
+        $role=$result['priority'];
+        $this->session->set_userdata('name',$result['name']);
+       $this->session->set_userdata('staff_id',$result['staff_id']);
+       $this->session->set_userdata('username',$result['username']);
+       $this->session->set_userdata('priority',$result['priority']);
+       $this->session->set_userdata('last_login',$result['last_login']);
+        $this->session->set_userdata('email',$result['email']);
+
+        if($role=='A')
+        {
+        //$this->load->view('admin/admin');
+        redirect('user/admin_panel');
+        }
+        else if($role=='S')
+        {
+        redirect('user/staff_panel');
+        }
       }
       else {
         $this->session->set_flashdata('error_msg', 'Wrong Username or Password.');
@@ -46,6 +63,17 @@ class User extends CI_Controller
       }
   }
 
+  //admin controller
+  public function admin_panel()
+  {
+      $this->load->view('admin/admin');
+  }
+
+  //staff admin_panel
+  public function staff_panel()
+  {
+    $this->load->view('staffs/staffs');
+  }
 
   //user registration form
   public function register()
