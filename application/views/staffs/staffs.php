@@ -1,145 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <!-- This file has been downloaded from Bootsnipp.com. Enjoy! -->
+    <title>Staff's Panel | HumanRex</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="<?=base_url()?>assets/bootstrap-3.3.0/css/bootstrap.min.css" rel="stylesheet">
+    <link href="<?=base_url()?>assets/staffs/staffs.css" rel="stylesheet">
+    <script src="<?=base_url()?>assets/jquery-1.11.1.min.js"></script>
+    <script src="<?=base_url()?>assets/bootstrap-3.3.0/js/bootstrap.min.js"></script>
+</head>
+<body>
+<section style="background:#efefe9;">
+        <div class="container">
+            <div class="row">
+                <div class="board">
+                    <!-- <h2>Welcome to IGHALO!<sup>™</sup></h2>-->
+                    <div class="board-inner">
+                    <ul class="nav nav-tabs" id="myTab">
+                    <div class="liner"></div>
+                     <li class="active">
+                     <a href="#home" data-toggle="tab" title="welcome">
+                      <span class="round-tabs one">
+                              <i class="glyphicon glyphicon-home"></i>
+                      </span>
+                  </a></li>
 
- <html>
- <head>
-   <title>Staff Panel</title>
-   <meta charset="utf-8">
-   <meta name="viewport" content="width=device-width, initial-scale=1">
-   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+                  <li><a href="#profile" data-toggle="tab" title="profile">
+                     <span class="round-tabs two">
+                         <i class="glyphicon glyphicon-user"></i>
+                     </span>
+           </a>
+                 </li>
+                 <li><a href="#messages" data-toggle="tab" title="bootsnipp goodies">
+                     <span class="round-tabs three">
+                          <i class="glyphicon glyphicon-gift"></i>
+                     </span> </a>
+                     </li>
 
-  <link rel="stylesheet" type="text/css" href="<?=base_url()?>assets/staffs/staffs.css">
+                     <li><a href="#settings" data-toggle="tab" title="blah blah">
+                         <span class="round-tabs four">
+                              <i class="glyphicon glyphicon-comment"></i>
+                         </span>
+                     </a></li>
 
-  <script src="<?=base_url()?>assets/staffs/staffs.js"></script>
+                     <li><a href="#doner" data-toggle="tab" title="completed">
+                         <span class="round-tabs five">
+                              <i class="glyphicon glyphicon-ok"></i>
+                         </span> </a>
+                     </li>
 
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+                     </ul></div>
 
+                     <div class="tab-content">
+                      <div class="tab-pane fade in active" id="home">
 
- </head>
- <body>
-   <nav class="navbar navbar-default navbar-static-top">
-       <div class="container-fluid">
-   		<!-- Brand and toggle get grouped for better mobile display -->
-   		<div class="navbar-header">
-   			<button type="button" class="navbar-toggle navbar-toggle-sidebar collapsed">
-   			MENU
-   			</button>
-   			<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
-   				<span class="sr-only">Toggle navigation</span>
-   				<span class="icon-bar"></span>
-   				<span class="icon-bar"></span>
-   				<span class="icon-bar"></span>
-   			</button>
-   			<a class="navbar-brand" href="#">
-   				Administrator
-   			</a>
-   		</div>
+                          <h3 class="head text-center">Welcome to HumanRex<sup>™</sup> <span style="color:#f48260;">♥</span></h3>
+                          <p class="narrow text-center">
+                              Lorem ipsum dolor sit amet, his ea mollis fabellas principes. Quo mazim facilis tincidunt ut, utinam saperet facilisi an vim.
+                          </p>
 
-   		<!-- Collect the nav links, forms, and other content for toggling -->
-   		<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-   			<form class="navbar-form navbar-left" method="GET" role="search">
-   				<div class="form-group">
-   					<input type="text" name="q" class="form-control" placeholder="Search">
-   				</div>
-   				<button type="submit" class="btn btn-default"><i class="glyphicon glyphicon-search"></i></button>
-   			</form>
-   			<ul class="nav navbar-nav navbar-right">
-   				<li><a href="http://www.pingpong-labs.com" target="_blank">Visit Site</a></li>
-   				<li class="dropdown ">
-   					<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
-   						Account
-   						<span class="caret"></span></a>
-   						<ul class="dropdown-menu" role="menu">
-   							<li class="dropdown-header">SETTINGS</li>
-   							<li class=""><a href="#">Other Link</a></li>
-   							<li class=""><a href="#">Other Link</a></li>
-   							<li class=""><a href="#">Other Link</a></li>
-   							<li class="divider"></li>
-   							<li><a href="#">Logout</a></li>
-   						</ul>
-   					</li>
-   				</ul>
-   			</div><!-- /.navbar-collapse -->
-   		</div><!-- /.container-fluid -->
-   	</nav>  	<div class="container-fluid main-container">
-     		<div class="col-md-2 sidebar">
-     			<div class="row">
-   	<!-- uncomment code for absolute positioning tweek see top comment in css -->
-   	<div class="absolute-wrapper"> </div>
-   	<!-- Menu -->
-   	<div class="side-menu">
-   		<nav class="navbar navbar-default" role="navigation">
-   			<!-- Main Menu -->
-   			<div class="side-menu-container">
-   				<ul class="nav navbar-nav">
-   					<li class="active"><a href="#"><span class="glyphicon glyphicon-dashboard"></span> Dashboard</a></li>
-   					<li><a href="#"><span class="glyphicon glyphicon-plane"></span> Active Link</a></li>
-   					<li><a href="#"><span class="glyphicon glyphicon-cloud"></span> Link</a></li>
+                          <p class="text-center">
+                    <a href="" class="btn btn-success btn-outline-rounded green"> start using bootsnipp <span style="margin-left:10px;" class="glyphicon glyphicon-send"></span></a>
+                </p>
+                      </div>
+                      <div class="tab-pane fade" id="profile">
+                          <h3 class="head text-center">Create a Bootsnipp<sup>™</sup> Profile</h3>
+                          <p class="narrow text-center">
+                              Lorem ipsum dolor sit amet, his ea mollis fabellas principes. Quo mazim facilis tincidunt ut, utinam saperet facilisi an vim.
+                          </p>
 
-   					<!-- Dropdown-->
-   					<li class="panel panel-default" id="dropdown">
-   						<a data-toggle="collapse" href="#dropdown-lvl1">
-   							<span class="glyphicon glyphicon-user"></span> Sub Level <span class="caret"></span>
-   						</a>
+                          <p class="text-center">
+                    <a href="" class="btn btn-success btn-outline-rounded green"> create your profile <span style="margin-left:10px;" class="glyphicon glyphicon-send"></span></a>
+                </p>
 
-   						<!-- Dropdown level 1 -->
-   						<div id="dropdown-lvl1" class="panel-collapse collapse">
-   							<div class="panel-body">
-   								<ul class="nav navbar-nav">
-   									<li><a href="#">Link</a></li>
-   									<li><a href="#">Link</a></li>
-   									<li><a href="#">Link</a></li>
+                      </div>
+                      <div class="tab-pane fade" id="messages">
+                          <h3 class="head text-center">Bootsnipp goodies</h3>
+                          <p class="narrow text-center">
+                              Lorem ipsum dolor sit amet, his ea mollis fabellas principes. Quo mazim facilis tincidunt ut, utinam saperet facilisi an vim.
+                          </p>
 
-   									<!-- Dropdown level 2 -->
-   									<li class="panel panel-default" id="dropdown">
-   										<a data-toggle="collapse" href="#dropdown-lvl2">
-   											<span class="glyphicon glyphicon-off"></span> Sub Level <span class="caret"></span>
-   										</a>
-   										<div id="dropdown-lvl2" class="panel-collapse collapse">
-   											<div class="panel-body">
-   												<ul class="nav navbar-nav">
-   													<li><a href="#">Link</a></li>
-   													<li><a href="#">Link</a></li>
-   													<li><a href="#">Link</a></li>
-   												</ul>
-   											</div>
-   										</div>
-   									</li>
-   								</ul>
-   							</div>
-   						</div>
-   					</li>
+                          <p class="text-center">
+                    <a href="" class="btn btn-success btn-outline-rounded green"> start using bootsnipp <span style="margin-left:10px;" class="glyphicon glyphicon-send"></span></a>
+                </p>
+                      </div>
+                      <div class="tab-pane fade" id="settings">
+                          <h3 class="head text-center">Drop comments!</h3>
+                          <p class="narrow text-center">
+                              Lorem ipsum dolor sit amet, his ea mollis fabellas principes. Quo mazim facilis tincidunt ut, utinam saperet facilisi an vim.
+                          </p>
 
-   					<li><a href="#"><span class="glyphicon glyphicon-signal"></span> Link</a></li>
+                          <p class="text-center">
+                    <a href="" class="btn btn-success btn-outline-rounded green"> start using bootsnipp <span style="margin-left:10px;" class="glyphicon glyphicon-send"></span></a>
+                </p>
+                      </div>
+                      <div class="tab-pane fade" id="doner">
+  <div class="text-center">
+    <i class="img-intro icon-checkmark-circle"></i>
+</div>
+<h3 class="head text-center">thanks for staying tuned! <span style="color:#f48260;">♥</span> Bootstrap</h3>
+<p class="narrow text-center">
+  Lorem ipsum dolor sit amet, his ea mollis fabellas principes. Quo mazim facilis tincidunt ut, utinam saperet facilisi an vim.
+</p>
+</div>
+<div class="clearfix"></div>
+</div>
 
-   				</ul>
-   			</div><!-- /.navbar-collapse -->
-   		</nav>
+</div>
+</div>
+</div>
+</section>
 
-   	</div>
-   </div>  		</div>
-     		<div class="col-md-10 content">
-     			  <div class="panel panel-default">
-   	<div class="panel-heading">
-   		Dashboard
-   	</div>
-   	<div class="panel-body">
-   		Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-   		tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-   		quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-   		consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
-   		cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
-   		proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-   	</div>
-   </div>
-     		</div>
-     		<footer class="pull-left footer">
-     			<p class="col-md-12">
-     				<hr class="divider">
-     				Copyright &COPY; 2015 <a href="http://www.pingpong-labs.com">Gravitano</a>
-     			</p>
-     		</footer>
-     	</div>
+<script type="text/javascript">
+$(function(){
+$('a[title]').tooltip();
+});
 
- </body>
- </html>
+</script>
+</body

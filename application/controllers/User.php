@@ -76,6 +76,12 @@ class User extends CI_Controller
     $this->load->view('staffs/staffs');
   }
 
+  //hod's panel
+  public function hod_panel()
+  {
+    $this->load->view('hods/hod');
+  }
+
   //user registration form
   public function register()
   {
