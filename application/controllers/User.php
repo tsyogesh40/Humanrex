@@ -43,7 +43,7 @@ class User extends CI_Controller
         $role=$result['priority'];
         $this->session->set_userdata('name',$result['name']);
        $this->session->set_userdata('staff_id',$result['staff_id']);
-       $this->session->set_userdata('username',$result['username']);
+//       $this->session->set_userdata('username',$result['username']);
        $this->session->set_userdata('priority',$result['priority']);
        $this->session->set_userdata('last_login',$result['last_login']);
         $this->session->set_userdata('email',$result['email']);
