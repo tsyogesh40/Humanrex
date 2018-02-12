@@ -15,7 +15,7 @@
         <div class="container">
             <div class="row">
                 <div class="board">
-                    <!-- <h2>Welcome to IGHALO!<sup>™</sup></h2>-->
+                    <!-- <h2>Welcome to Humanrex!<sup>™</sup></h2>-->
                     <div class="board-inner">
                     <ul class="nav nav-tabs" id="myTab">
                     <div class="liner"></div>
@@ -54,14 +54,29 @@
 
                      <div class="tab-content">
                       <div class="tab-pane fade in active" id="home">
+                          <h3 class="head text-center">Welcome, <?php echo $this->session->userdata('name'); ?><sup>™</sup> <span style="color:#f48260;">♥</span></h3>
+                          <h4 class="narrow text-center">
+                            User Information
+                          </h4>
+                          <table class="table text-center table-responsive">
+                            <tbody>
+                              <tr>
+                                <td>Staff ID</td>
+                                <td><?php echo $this->session->userdata('staff_id'); ?></td>
+                              </tr>
+                              <tr>
+                                <td>Email ID:</td>
+                                <td><?php echo $this->session->userdata('email'); ?></td>
+                              </tr>
+                              <tr>
+                                <td>Last Login:</td>
+                                <td><?php echo $this->session->userdata('lastlogin'); ?></td>
+                              </tr>
+                            </tbody>
+                          </table>
 
-                          <h3 class="head text-center">Welcome to HumanRex<sup>™</sup> <span style="color:#f48260;">♥</span></h3>
-                          <p class="narrow text-center">
-                              Lorem ipsum dolor sit amet, his ea mollis fabellas principes. Quo mazim facilis tincidunt ut, utinam saperet facilisi an vim.
-                          </p>
-
-                          <p class="text-center">
-                    <a href="" class="btn btn-success btn-outline-rounded green"> start using bootsnipp <span style="margin-left:10px;" class="glyphicon glyphicon-send"></span></a>
+                  <p class="text-center">
+                    <a href="#" class="btn btn-success btn-outline-rounded green"> View History <span style="margin-left:10px;" class="glyphicon glyphicon-send"></span></a>
                 </p>
                       </div>
                       <div class="tab-pane fade" id="profile">
