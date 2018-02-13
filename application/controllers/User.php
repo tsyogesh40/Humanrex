@@ -106,35 +106,10 @@ class User extends CI_Controller
   {
     $date=$this->input->post('date');
     $staff_id=$this->session->userdata('staff_id');
-    $datas=$this->user_model->fetch_details($staff_id);
-    $attendence=$this->user_model->staff_entry($staff_id);
-    if ($date != "")
-    {
-      $history=$this->user_model->select_id($date,$staff_id);
-        if($history!=false)
-        {
-          $data['result_display']=$history;
-        }
-        else {
 
-          $data['result_display']='No Records Found';
-        }
-      }
-
-    $details=array(
-      'in_time'=>$attendence['in_time'],
-      'out_time'=>$attendence['out_time'],
-      'p_value'=>$attendence['p_value'],
-      'status'=>$attendence['status'],
-      'date'=>$attendence['date'],
-      'phone'=>$datas['phone'],
-      'staff_id'=>$datas['staff_id'],
-      'designation'=>$datas['designation'],
-      'email'=>$datas['email'],
-      'datas'=>$data['result_display']
-        );
-
-        $this->load->view('staffs/staffs',$details);
+      $data['history']=$this->user_model->select_id($date,$staff_id);
+      $this->load->view('staffs/history',$data);
+    //  print_r($data);
   }
 
   //select my reange

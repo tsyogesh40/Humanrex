@@ -2,7 +2,6 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <!-- This file has been downloaded from Bootsnipp.com. Enjoy! -->
     <title>Staff's Panel | HumanRex</title>
         <meta name="viewport" content="width=device-width, initial-scale=1">
     <link href="<?=base_url()?>assets/bootstrap-3.3.0/css/bootstrap.min.css" rel="stylesheet">
@@ -93,7 +92,7 @@
                             </tbody>
                           </table>
                         </div>
-
+                      
                   <p class="text-center">
 
                     <a  href="#messages" data-toggle="tab" title="Nofifications" class="btn btn-success btn-outline-rounded green"> View History <span style="margin-left:10px;" class="glyphicon glyphicon-send"></span></a>
@@ -105,7 +104,7 @@
 
                           <?php echo $this->session->userdata('name');?>
 
-                          <div class="table-responsive">
+                          <div class="table-responsive table-md">
                               <table class="table text-center table-bordered table-striped">
                                 <tbody>
                                   <tr>
@@ -135,7 +134,8 @@
                     <!-- Trigger the modal with a button -->
 <button type="button" class="btn btn-info btn-md" data-toggle="modal" data-target="#edit_modal">Edit Your Profile</button>
     <!-- Modal -->
-        <div class="modal fade" id="edit_modal" role="dialog">
+        <div class="modal fade" id="edi
+        t_modal" role="dialog">
           <div class="modal-dialog">
 
             <!-- Modal content-->
@@ -196,7 +196,7 @@
                           <h3 class="head text-center">view Your History </h3>
                           <br>
 
-                            <form class="form-inline text-center" action="<?=base_url()?>user/select_by_id" method="post">
+                            <form class="form-inline text-center" action="<?=base_url()?>user/select_by_id" target="_blank" method="post">
                               <div class="form-group">
                                   <label for="date">Select Date:&nbsp;</label>
                                   <input type="date" class="form-control" id="date" name="date">
@@ -217,65 +217,8 @@
                                       <button type="submit" class="btn btn-primary">select</button>
                                     </form>
                           <br><p class="text-center">
-                            <button type="button" class="btn btn-success btn-md" data-toggle="modal" data-target="#history">click here to view</button>
+
                           </p>
-
-                          <div class="modal fade" id="history" role="dialog">
-                            <div class="modal-dialog">
-
-                              <!-- history Modal content-->
-                              <div class="modal-content">
-                                <div class="modal-header">
-                                  <button type="button" class="close" data-dismiss="modal">&times;</button>
-                                  <h4 class="modal-title">History</h4>
-                                </div>
-                                <div class="modal-body">
-                                  <?php
-                                  if(isset($datas))
-                                  {
-                                    echo '<p>Your History......</p>';
-                                    if ($datas == 'No Records Found') {
-                                      echo $datas;
-                                    }
-                                    else {
-                                  echo'    <div class="container board">
-                                      <table class="table table-striped">
-                                          <thead>
-                                            <tr>
-                                              <th>DATE</th>
-                                              <th>IN_TIME</th>
-                                              <th>OUT_TIME</th>
-                                              <th>STATUS</th>
-                                              <th>ATTENDENCE</th>
-                                            </tr>
-                                          </thead>
-                                          <tbody>';
-                                  foreach($datas as $value)
-                                  {
-                                echo'      <tr>
-                                            <td>'.$value->date'.</td>
-                                            <td>'.$value->in_time.'</td>
-                                            <td>'.$value->out_time.'</td>
-                                            <td>'.$value->status.'</td>
-                                            <td>'.$value->attendence.'</td>
-                                          </tr>';
-                                    }
-                                  echo'        </tbody>
-                                      </table>
-                                      </div>';
-
-                                    }
-                                  }
-                                  ?>
-                                </div>
-                                <div class="modal-footer">
-                                  <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                                </div>
-                              </div>
-
-                            </div>
-                          </div>
-
 
                       </div>
                       <div class="tab-pane fade" id="settings">
@@ -302,7 +245,7 @@
   <div class="text-center">
     <i class="img-intro icon-checkmark-circle"></i>
 </div>
-<h3 class="head text-center">thanks for staying tuned! <span style="color:#f48260;">♥</span>HumanRex</h3>
+<h3 class="head text-center">Thanks for staying tuned! <span style="color:#f48260;">♥</span>HumanRex</h3>
 <p class="narrow text-center">
   Lorem ipsum dolor sit amet, his ea mollis fabellas principes. Quo mazim facilis tincidunt ut, utinam saperet facilisi an vim.
 </p>

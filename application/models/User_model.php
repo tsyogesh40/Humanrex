@@ -47,7 +47,7 @@ public function select_id($date,$staff_id)
   $this->db->where('date',$date);
   if($res=$this->db->get())
   {
-    return $res->row_array();
+    return $res->result();
   }
   else {
     return false;
