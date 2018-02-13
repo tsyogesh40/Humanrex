@@ -10,7 +10,64 @@ class User_model extends CI_model
   {
     parent::__construct();
   }
+  //fetching attendence details
+  public function staff_entry($staff_id)
+  {
+    $date= date('Y-m-d');
+    $this->db->select('*');
+    $this->db->from('temp_entry');
+    $this->db->where('staff_id',$staff_id);
+    $this->db->where('date',$date);
+    if($res=$this->db->get())
+    {
+      return $res->row_array();
+    }
+    else {
+      return false;
+    }
+  }
+//update details in staffs page
+public function update_details($datas,$staff_id)
+{
+  $pass=array('password'=>$datas['password']);
+  $phone=array('phone'=>$datas['phone']);
+  //updating phone no in staff details
+  $this->db->where('staff_id',$staff_id);
+  $this->db->update('staff_details',$phone);
+  //updating password in user_credentails
+  $this->db->where('staff_id',$staff_id);
+  $this->db->update('user_credentials',$pass);
+}
+//select by date
+public function select_id($date,$staff_id)
+{
+  $this->db->select('*');
+  $this->db->from('temp_entry');
+  $this->db->where('staff_id',$staff_id);
+  $this->db->where('date',$date);
+  if($res=$this->db->get())
+  {
+    return $res->row_array();
+  }
+  else {
+    return false;
+  }
+}
+
   //login verify model
+  public function fetch_details($staff_id)
+  {
+    $this->db->select('*');
+    $this->db->from('staff_details');
+    $this->db->where('staff_id',$staff_id);
+    if($res=$this->db->get())
+    {
+      return $res->row_array();
+    }
+    else {
+      return false;
+    }
+  }
   public  function login($email,$pswd)
   {
       $this->db->select('*');

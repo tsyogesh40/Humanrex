@@ -36,7 +36,6 @@ class User extends CI_Controller
       'password'=>$this->input->post('pswd')
     );
     $result=$this->user_model->login($user_login['name'],$user_login['password']);
-
       if($result)
       {
         $this->session->set_flashdata('success_msg', 'Login Successful!');
@@ -47,7 +46,6 @@ class User extends CI_Controller
        $this->session->set_userdata('priority',$result['priority']);
        $this->session->set_userdata('last_login',$result['last_login']);
         $this->session->set_userdata('email',$result['email']);
-
         if($role=='A')
         {
         //$this->load->view('admin/admin');
@@ -55,11 +53,13 @@ class User extends CI_Controller
         }
         else if($role=='S')
         {
-        redirect('user/staff_panel');
+        //redirect('user/staff_panel');
+      //  $this->load->view('staffs/staffs');
+        $this->staff_panel($result['staff_id']);
         }
       }
       else {
-        $this->session->set_flashdata('error_msg', 'Wrong Username or Password.');
+        $this->session->set_flashdata('error_msg', 'Wrong Email or Password.');
         $this->load->view('login');
       }
   }
@@ -71,11 +71,80 @@ class User extends CI_Controller
   }
 
   //staff admin_panel
-  public function staff_panel()
+  public function staff_panel($staff_id)
   {
-    $this->load->view('staffs/staffs');
+    $datas=$this->user_model->fetch_details($staff_id);
+    $attendence=$this->user_model->staff_entry($staff_id);
+    $details=array(
+      'in_time'=>$attendence['in_time'],
+      'out_time'=>$attendence['out_time'],
+      'p_value'=>$attendence['p_value'],
+      'status'=>$attendence['status'],
+      'date'=>$attendence['date'],
+      'phone'=>$datas['phone'],
+      'staff_id'=>$datas['staff_id'],
+      'designation'=>$datas['designation'],
+      'email'=>$datas['email']
+        );
+    $this->load->view('staffs/staffs',$details);
+  }
+//update details in staff panel (password n phone number)
+  public function update_details()
+  {
+      $input=array(
+        'phone'=>$this->input->post('phone'),
+        'password'=>$this->input->post('pwd')
+      );
+      $staff_id=$this->session->userdata('staff_id');
+      $this->user_model->update_details($input,$staff_id);
+      $this->session->set_flashdata('notify', 'Phone Number and password updated Successfully!.');
+      //$this->staff_panel($staff_id);
+      $this->login();
+  }
+  //select by ID
+  public function select_by_id()
+  {
+    $date=$this->input->post('date');
+    $staff_id=$this->session->userdata('staff_id');
+    $datas=$this->user_model->fetch_details($staff_id);
+    $attendence=$this->user_model->staff_entry($staff_id);
+    if ($date != "")
+    {
+      $history=$this->user_model->select_id($date,$staff_id);
+        if($history!=false)
+        {
+          $data['result_display']=$history;
+        }
+        else {
+
+          $data['result_display']='No Records Found';
+        }
+      }
+
+    $details=array(
+      'in_time'=>$attendence['in_time'],
+      'out_time'=>$attendence['out_time'],
+      'p_value'=>$attendence['p_value'],
+      'status'=>$attendence['status'],
+      'date'=>$attendence['date'],
+      'phone'=>$datas['phone'],
+      'staff_id'=>$datas['staff_id'],
+      'designation'=>$datas['designation'],
+      'email'=>$datas['email'],
+      'datas'=>$data['result_display']
+        );
+
+        $this->load->view('staffs/staffs',$details);
   }
 
+  //select my reange
+  public function select_by_range()
+  {
+    $dates=array(
+      'from'=>$this->input->post('from_date'),
+      'to'=>$this->input->post('to_date')
+    );
+  }
   //hod's panel
   public function hod_panel()
   {
@@ -151,7 +220,6 @@ class User extends CI_Controller
                    $this->session->set_flashdata('error_msg', 'Error occured! Please try again!!');
                    $this->load->view('enrollform');
                   }
-
   }
 
 }

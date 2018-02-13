@@ -83,6 +83,16 @@
                     <?php
                   }
                 ?>
+								<?php
+								//log message
+										$msg= $this->session->flashdata('notify');
+												if($msg){
+													?>
+													<div class="alert alert-success">
+														<?php echo $msg; ?>
+													</div>
+												<?php
+											}?>
 
 					<div class="container-login100-form-btn">
 						<button class="login100-form-btn">
@@ -109,8 +119,6 @@
 			</div>
 		</div>
 	</div>
-
-
 
 
 <!--===============================================================================================-->
