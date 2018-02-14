@@ -54,6 +54,23 @@ public function select_id($date,$staff_id)
   }
 }
 
+//select by range
+public function select_range($staff_id,$from,$to)
+{
+  //$this->db->query('select * from temp_entry where staff_id='.$staff_id.' and (date between '.$from.' and '.$to.')');
+  $condition="date between"."'".$from."'"."and"."'".$to."'";
+  $this->db->select('*');
+  $this->db->from('temp_entry');
+  $this->db->where('staff_id',$staff_id);
+  $this->db->where($condition);
+  if($history=$this->db->get())
+  {
+    return $history->result();
+  }else {
+    return false();
+  }
+}
+
   //login verify model
   public function fetch_details($staff_id)
   {
@@ -104,6 +121,7 @@ public function select_id($date,$staff_id)
       return true;
     }
   }
+
 
   //register new staff
   public function staff_register($data)

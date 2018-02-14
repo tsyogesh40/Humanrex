@@ -88,6 +88,7 @@ class User extends CI_Controller
         );
     $this->load->view('staffs/staffs',$details);
   }
+
 //update details in staff panel (password n phone number)
   public function update_details()
   {
@@ -115,10 +116,12 @@ class User extends CI_Controller
   //select my reange
   public function select_by_range()
   {
-    $dates=array(
-      'from'=>$this->input->post('from_date'),
-      'to'=>$this->input->post('to_date')
-    );
+    $from=$this->input->post('from_date');
+    $to=$this->input->post('to_date');
+    $staff_id=$this->session->userdata('staff_id');
+    $data['history']=$this->user_model->select_range($staff_id,$from,$to);
+    $this->load->view('staffs/history',$data);
+
   }
   //hod's panel
   public function hod_panel()

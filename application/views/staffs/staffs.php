@@ -92,7 +92,7 @@
                             </tbody>
                           </table>
                         </div>
-                      
+
                   <p class="text-center">
 
                     <a  href="#messages" data-toggle="tab" title="Nofifications" class="btn btn-success btn-outline-rounded green"> View History <span style="margin-left:10px;" class="glyphicon glyphicon-send"></span></a>
@@ -134,8 +134,7 @@
                     <!-- Trigger the modal with a button -->
 <button type="button" class="btn btn-info btn-md" data-toggle="modal" data-target="#edit_modal">Edit Your Profile</button>
     <!-- Modal -->
-        <div class="modal fade" id="edi
-        t_modal" role="dialog">
+        <div class="modal fade" id="edit_modal" role="dialog">
           <div class="modal-dialog">
 
             <!-- Modal content-->
@@ -205,7 +204,7 @@
                                 </form><br>
                                 <h4 class="narrow text-center">------------------(or)------------------<br>   </h4>
                                 <br><p class="narrow text-center"><b>Select by range of dates<br>   </b></p>
-                                <form class="form-inline text-center" action="/action_page.php">
+                                <form class="form-inline text-center"  target="_blank" method="post" action="<?=base_url()?>user/select_by_range">
                                   <div class="form-group">
                                       <label for="date">From:&nbsp;</label>
                                       <input type="date" class="form-control" id="date1" name="from_date">
@@ -247,7 +246,8 @@
 </div>
 <h3 class="head text-center">Thanks for staying tuned! <span style="color:#f48260;">♥</span>HumanRex</h3>
 <p class="narrow text-center">
-  Lorem ipsum dolor sit amet, his ea mollis fabellas principes. Quo mazim facilis tincidunt ut, utinam saperet facilisi an vim.
+
+  <a  href="#messages" data-toggle="tab" title="Nofifications" class="btn btn-danger btn-outline-rounded green"> LOGOUT <span style="margin-left:10px;" class="glyphicon glyphicon-send"></span></a>
 </p>
 </div>
 <div class="clearfix"></div>
