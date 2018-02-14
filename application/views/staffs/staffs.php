@@ -147,7 +147,7 @@
                 <div class="container board">
                   <form action="<?=base_url()?>user/update_details" method="post">
                     <div class="form-group">
-                      <label for="phone"Hne Number:</label>
+                      <label for="phone">Phone Number:</label>
                       <input type="number" class="form-control" id="phone" value="<?php echo $phone;?>" placeholder="New PhoneNumber" name="phone">
                     </div>
                     <div class="form-group">
@@ -247,7 +247,7 @@
 <h3 class="head text-center">Thanks for staying tuned! <span style="color:#f48260;">♥</span>HumanRex</h3>
 <p class="narrow text-center">
 
-  <a  href="#messages" data-toggle="tab" title="Nofifications" class="btn btn-danger btn-outline-rounded green"> LOGOUT <span style="margin-left:10px;" class="glyphicon glyphicon-send"></span></a>
+  <a  href="#messages" data-toggle="tab" title="Nofifications" class="btn btn-danger btn-oHputline-rounded green"> LOGOUT <span style="margin-left:10px;" class="glyphicon glyphicon-send"></span></a>
 </p>
 </div>
 <div class="clearfix"></div>

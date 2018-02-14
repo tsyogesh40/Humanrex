@@ -57,6 +57,10 @@ class User extends CI_Controller
       //  $this->load->view('staffs/staffs');
         $this->staff_panel($result['staff_id']);
         }
+        else if($role=='H')
+        {
+          $this->hod_panel();
+        }
       }
       else {
         $this->session->set_flashdata('error_msg', 'Wrong Email or Password.');
