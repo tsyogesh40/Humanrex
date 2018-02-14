@@ -147,7 +147,7 @@
                 <div class="container board">
                   <form action="<?=base_url()?>user/update_details" method="post">
                     <div class="form-group">
-                      <label for="phone">Phone Number:</label>
+                      <label for="phone"Hne Number:</label>
                       <input type="number" class="form-control" id="phone" value="<?php echo $phone;?>" placeholder="New PhoneNumber" name="phone">
                     </div>
                     <div class="form-group">
