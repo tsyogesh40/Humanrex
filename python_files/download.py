@@ -4,7 +4,7 @@ import os
 import pymysql
 import binascii
 
-cnx=pymysql.connect(user='root',password='root',host='localhost',database='Humanrexx')
+cnx=pymysql.connect(user='root',password='root',host='localhost',database='Humanrexx1')
 if cnx:
         print('localhost connected')
 cur=cnx.cursor()

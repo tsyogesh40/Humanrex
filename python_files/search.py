@@ -5,7 +5,6 @@ import serial,time,datetime
 import pymysql
 ## Search for a finger
 ##
-
  ##Time and Date formats
 
 t=datetime.datetime.now()
@@ -105,6 +104,7 @@ while(1):
         if (flag!=1):
             flag=0
             #cnx=pymysql.connect(user='u609047224_admin',password='podalusu',host='sql133.main-hosting.eu.',database='u609047224_data')
+            #cnx=pymysql.connect(user='yogesh',password='',host='172.16.3.57',database='Humanrexx1')
             cnx=pymysql.connect(user='root',password='root',host='127.0.0.1',database='Humanrexx1')
             if cnx:
                 print ("Localhost Connected")
@@ -246,7 +246,7 @@ while(1):
                              print('Your entry ',entry,'is at',time_12(),'\nThankYou!')
 
                      else:
-                         print('Your presence is confirmed today -',date(), '!\nHave a nice Day')
+                         print('Your presence is Already confirmed today -',date(), '!\nHave a nice Day')
             except Exception as ex:
                 print("Manipulating problem")
                 print(ex)

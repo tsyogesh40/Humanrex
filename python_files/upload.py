@@ -47,16 +47,17 @@ def readPacket1():      # Function to read the Acknowledge packet
         u=t[24:]
         ##DB connection##
         try:
-                cnx=pymysql.connect(user='u200437326_yog',password='23456',host='sql32.main-hosting.eu.',database='u200437326_db1')       # connect to MySql database
+                cnx=pymysql.connect(user='yoges',password='',host='172.16.3.57',database='Humanrexx1')       # connect to MySql database
                 if cnx:
                         print ("Server DB connected")
                         flag=1
         except:
                 flag=0
-                cnx=pymysql.connect(user='root',password='root',host='127.0.0.1',database='Humanrexx')       # connect to MySql database
+                cnx=pymysql.connect(user='root',password='root',host='127.0.0.1',database='Humanrexx1')       # connect to MySql database
                 if cnx:
                     print ("localhost connected")
         cur=cnx.cursor()
+        name=''
 
         try:
            if(flag!=0):
