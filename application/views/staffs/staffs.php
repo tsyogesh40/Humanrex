@@ -14,7 +14,6 @@
         <div class="container">
             <div class="row">
                 <div class="board">
-
                     <!-- <h2>Welcome to Humanrex!<sup>™</sup></h2>-->
                     <div class="board-inner">
                     <ul class="nav nav-tabs" id="myTab">

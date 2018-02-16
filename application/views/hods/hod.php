@@ -5,10 +5,13 @@
    <meta charset="utf-8">
    <meta name="viewport" content="width=device-width, initial-scale=1">
    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+   <!--<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-
+   <link rel="stylesheet" href="<?=base_url()?>assets/bootstrap-3.3.7/css/bootstrap.min.css">-->
+   <script src="<?=base_url()?>assets/jquery-3.3.1.min.js"></script>
+   <script src="<?=base_url()?>assets/bootstrap-3.3.7/js/bootstrap.min.js"></script>
+   <script src="<?=base_url()?>assets/jquery-3.3.1.min.js"></script>
    <link rel="stylesheet" type="text/css" href="<?=base_url()?>assets/hods/hod.css">
    <script src="<?=base_url()?>assets/hods/hod.js"></script>
 
@@ -28,7 +31,7 @@
    				<span class="icon-bar"></span>
    			</button>
    			<a class="navbar-brand" href="#">
-   				Administrator
+   				HOD Panel
    			</a>
    		</div>
 
@@ -70,24 +73,23 @@
    			<div class="side-menu-container">
    				<ul class="nav navbar-nav">
    					<li class="active"><a href="#"><span class="glyphicon glyphicon-dashboard"></span> Dashboard</a></li>
-   					<li><a href="#"><span class="glyphicon glyphicon-plane"></span> Active Link</a></li>
-   					<li><a href="#"><span class="glyphicon glyphicon-cloud"></span> Link</a></li>
+            <li><a href="#"><span class="glyphicon glyphicon-plane"></span> My History</a></li>
 
    					<!-- Dropdown-->
    					<li class="panel panel-default" id="dropdown">
    						<a data-toggle="collapse" href="#dropdown-lvl1">
-   							<span class="glyphicon glyphicon-user"></span> Sub Level <span class="caret"></span>
+   							<span class="glyphicon glyphicon-user"></span> Staff Details <span class="caret"></I>
    						</a>
 
    						<!-- Dropdown level 1 -->
    						<div id="dropdown-lvl1" class="panel-collapse collapse">
    							<div class="panel-body">
    								<ul class="nav navbar-nav">
-   									<li><a href="#">Link</a></li>
-   									<li><a href="#">Link</a></li>
-   									<li><a href="#">Link</a></li>
+   									<li><a href="#">Today</a></li>
+   									<li><a href="#">Staff History</a></li>
 
-   									<!-- Dropdown level 2 -->
+
+   									<!-- Dropdown level 2
    									<li class="panel panel-default" id="dropdown">
    										<a data-toggle="collapse" href="#dropdown-lvl2">
    											<span class="glyphicon glyphicon-off"></span> Sub Level <span class="caret"></span>
@@ -101,7 +103,7 @@
    												</ul>
    											</div>
    										</div>
-   									</li>
+   									</li> -->
    								</ul>
    							</div>
    						</div>
@@ -121,19 +123,17 @@
    		Dashboard
    	</div>
    	<div class="panel-body">
-   		Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-   		tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-   		quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-   		consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
-   		cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
-   		proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+   		 Welcome !!
+       <?php
+       print_r($this->session->userdata());
+        ?>
    	</div>
    </div>
      		</div>
      		<footer class="pull-left footer">
      			<p class="col-md-12">
      				<hr class="divider">
-     				Copyright &COPY; 2015 <a href="http://www.pingpong-labs.com">Gravitano</a>
+     				Copyright &COPY; 2015 <a href="http://www.pingpong-labs.com"></a>
      			</p>
      		</footer>
      	</div>
