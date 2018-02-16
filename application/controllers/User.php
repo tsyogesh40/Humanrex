@@ -28,6 +28,12 @@ class User extends CI_Controller
     $this->load->view('login');
   }
 
+  public function logout()
+  {
+    $this->session->sess_destroy();
+    $this->session->set_flashdata('logout_msg', 'Logout successfully!');
+    $this->load->view('login');
+  }
   //login verification
   public function login_verify()
   {
@@ -38,7 +44,6 @@ class User extends CI_Controller
     $result=$this->user_model->login($user_login['name'],$user_login['password']);
       if($result)
       {
-        $this->session->set_flashdata('success_msg', 'Login Successful!');
         $role=$result['priority'];
         $this->session->set_userdata('name',$result['name']);
        $this->session->set_userdata('staff_id',$result['staff_id']);
@@ -50,16 +55,19 @@ class User extends CI_Controller
         {
         //$this->load->view('admin/admin');
         redirect('user/admin_panel');
+        //$this->session->set_flashdata('success_msg', 'Login Successful!');
         }
         else if($role=='S')
         {
         //redirect('user/staff_panel');
       //  $this->load->view('staffs/staffs');
         $this->staff_panel($result['staff_id']);
+        //$this->session->set_flashdata('success_msg', 'Login Successful!');
         }
         else if($role=='H')
         {
           $this->hod_panel();
+          //$this->session->set_flashdata('success_msg', 'Login Successful!');
         }
       }
       else {
