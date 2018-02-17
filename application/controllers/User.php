@@ -66,7 +66,7 @@ class User extends CI_Controller
         }
         else if($role=='H')
         {
-          $this->hod_panel();
+          $this->hod_panel($result['staff_id']);
           //$this->session->set_flashdata('success_msg', 'Login Successful!');
         }
       }
@@ -136,9 +136,22 @@ class User extends CI_Controller
 
   }
   //hod's panel
-  public function hod_panel()
+  public function hod_panel($staff_id)
   {
-    $this->load->view('hods/hod');
+    $datas=$this->user_model->fetch_details($staff_id);
+    $attendence=$this->user_model->staff_entry($staff_id);
+    $details=array(
+      'in_time'=>$attendence['in_time'],
+      'out_time'=>$attendence['out_time'],
+      'p_value'=>$attendence['p_value'],
+      'status'=>$attendence['status'],
+      'date'=>$attendence['date'],
+      'phone'=>$datas['phone'],
+      'staff_id'=>$datas['staff_id'],
+      'designation'=>$datas['designation'],
+      'email'=>$datas['email']
+        );
+    $this->load->view('hods/hod',$details);
   }
 
   //user registration form

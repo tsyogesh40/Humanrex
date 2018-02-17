@@ -1,7 +1,7 @@
 
  <html>
  <head>
-   <title>Staff Panel</title>
+   <title>HOD Panel | Human Rex</title>
    <meta charset="utf-8">
    <meta name="viewport" content="width=device-width, initial-scale=1">
    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
@@ -73,7 +73,7 @@
    			<div class="side-menu-container">
    				<ul class="nav navbar-nav">
    					<li class="active"><a href="#"><span class="glyphicon glyphicon-dashboard"></span> Dashboard</a></li>
-            <li><a href="#"><span class="glyphicon glyphicon-plane"></span> My History</a></li>
+            <li><a href="#history"><span class="glyphicon glyphicon-plane"></span> My History</a></li>
 
    					<!-- Dropdown-->
    					<li class="panel panel-default" id="dropdown">
@@ -123,13 +123,99 @@
    		Dashboard
    	</div>
    	<div class="panel-body">
-   		 Welcome !!
-       <?php
-       print_r($this->session->userdata());
-        ?>
+   		 <h3></h3>
+       <!--container begin-->
+       <div class="container">
+       <div class="table-responsive col-md-*">
+           <table class="table text-center table-bordered table-striped table-dark table-hover">
+             <tbody>
+               <?php
+               if($status=="ONTIME")
+               {
+               echo'  <tr class="success">
+                   <td><b>Status :</b></td>
+                   <td>'.$status.'</td>
+                 </tr>';
+               }
+               else {
+               echo' <tr class="danger">
+                   <td><b>Status :</b></td>
+                   <td>'.$status.'</td>
+                 </tr>
+                 <tr>';
+               }
+               ?>
+
+                 <td><b>Intime :</b></td>
+                 <td><?php echo $in_time ?></td>
+               </tr>
+               <tr>
+                 <td><b>Outtime:</b></td>
+                 <td><?php echo $out_time ?></td>
+               </tr>
+               <tr>
+                 <td><b>Last Login:</b></td>
+                 <td><?php echo $this->session->userdata('last_login'); ?></td>
+               </tr>
+             </tbody>
+           </table>
+         </div>
+       </div><!-- end of container-->
    	</div>
    </div>
-     		</div>
+      </div>
+
+
+
+      <div class="col-md-10 content">
+          <div class="panel panel-default">
+      <div class="panel-heading">
+      Dashboard
+      </div>
+      <div class="panel-body">
+      <h3></h3>
+      <!--container begin-->
+      <div class="container">
+      <div class="table-responsive col-md-*">
+         <table class="table text-center table-bordered table-striped table-dark table-hover">
+           <tbody>
+             <?php
+             if($status=="ONTIME")
+             {
+             echo'  <tr class="success">
+                 <td><b>Status :</b></td>
+                 <td>'.$status.'</td>
+               </tr>';
+             }
+             else {
+             echo' <tr class="danger">
+                 <td><b>Status :</b></td>
+                 <td>'.$status.'</td>
+               </tr>
+               <tr>';
+             }
+             ?>
+
+               <td><b>Intime :</b></td>
+               <td><?php echo $in_time ?></td>
+             </tr>
+             <tr>
+               <td><b>Outtime:</b></td>
+               <td><?php echo $out_time ?></td>
+             </tr>
+             <tr>
+               <td><b>Last Login:</b></td>
+               <td><?php echo $this->session->userdata('last_login'); ?></td>
+             </tr>
+           </tbody>
+         </table>
+       </div>
+      </div><!-- end of container-->
+      </div>
+      </div>
+      </div>
+
+
      		<footer class="pull-left footer">
      			<p class="col-md-12">
      				<hr class="divider">
