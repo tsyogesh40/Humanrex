@@ -47,16 +47,17 @@ def readPacket1():      # Function to read the Acknowledge packet
         u=t[24:]
         ##DB connection##
         try:
-                cnx=pymysql.connect(user='u200437326_yog',password='23456',host='sql32.main-hosting.eu.',database='u200437326_db1')       # connect to MySql database
+                cnx=pymysql.connect(user='yoges',password='',host='172.16.3.57',database='Humanrexx1')       # connect to MySql database
                 if cnx:
                         print ("Server DB connected")
                         flag=1
         except:
                 flag=0
-                cnx=pymysql.connect(user='root',password='root',host='127.0.0.1',database='Humanrexx')       # connect to MySql database
+                cnx=pymysql.connect(user='root',password='root',host='127.0.0.1',database='admin_panel')       # connect to MySql database
                 if cnx:
                     print ("localhost connected")
         cur=cnx.cursor()
+        name=''
 
         try:
            if(flag!=0):
@@ -77,11 +78,7 @@ def readPacket1():      # Function to read the Acknowledge packet
                    print ('Hello!',name,'Your',finger_nm,' FingerPrint is Updated successfully ')
                    cnx.commit()
 
-                   #intializing the counter table
-                   sql_counter="INSERT INTO counter(staff_id,name,count) VALUES(%s,%s,%s)"
-                   res_couner=cur.execute(sql_counter,(staff_id,name,0))
-                   cnx.commit()
-                   
+                       
         except Exception as ex:
             print ("rollback")
             print (ex)

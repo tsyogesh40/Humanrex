@@ -85,7 +85,7 @@
                 ?>
 								<?php
 								//log message
-										$msg= $this->session->flashdata('notify');
+										$msg= $this->session->flashdata('logout_msg');
 												if($msg){
 													?>
 													<div class="alert alert-success">

@@ -14,7 +14,6 @@
         <div class="container">
             <div class="row">
                 <div class="board">
-
                     <!-- <h2>Welcome to Humanrex!<sup>™</sup></h2>-->
                     <div class="board-inner">
                     <ul class="nav nav-tabs" id="myTab">
@@ -104,10 +103,11 @@
 
                           <?php echo $this->session->userdata('name');?>
 
+
                           <div class="table-responsive table-md">
                               <table class="table text-center table-bordered table-striped">
                                 <tbody>
-                                  <tr>
+                                  <tr class="active">
                                     <td><strong>Staff ID<strong></td>
                                     <td><?php echo $staff_id ?></td>
                                   </tr>
@@ -147,7 +147,7 @@
                 <div class="container board">
                   <form action="<?=base_url()?>user/update_details" method="post">
                     <div class="form-group">
-                      <label for="phone"Hne Number:</label>
+                      <label for="phone">Phone Number:</label>
                       <input type="number" class="form-control" id="phone" value="<?php echo $phone;?>" placeholder="New PhoneNumber" name="phone">
                     </div>
                     <div class="form-group">
@@ -188,6 +188,7 @@
 
   </div>
 </div>
+
             </p>
 
                       </div>
@@ -237,7 +238,7 @@
                           </p>
 
                           <p class="text-center">
-                    <a href="" class="btn btn-success btn-outline-rounded green"> View History <span style="margin-left:10px;" class="glyphicon glyphicon-send"></span></a>
+                  <!--  <a href="" class="btn btn-success btn-outline-rounded green"> View History <span style="margin-left:10px;" class="glyphicon glyphicon-send"></span></a>-->
                 </p>
                       </div>
                       <div class="tab-pane fade" id="doner">
@@ -246,8 +247,7 @@
 </div>
 <h3 class="head text-center">Thanks for staying tuned! <span style="color:#f48260;">♥</span>HumanRex</h3>
 <p class="narrow text-center">
-
-  <a  href="#messages" data-toggle="tab" title="Nofifications" class="btn btn-danger btn-outline-rounded green"> LOGOUT <span style="margin-left:10px;" class="glyphicon glyphicon-send"></span></a>
+  <a  href="<?=base_url()?>user/logout"  title="Click to Logout" class="btn btn-danger btn-oHputline-rounded green"> LOGOUT <span style="margin-left:10px;" class="glyphicon glyphicon-send"></span></a>
 </p>
 </div>
 <div class="clearfix"></div>
