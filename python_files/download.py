@@ -4,7 +4,7 @@ import os
 import pymysql
 import binascii
 
-cnx=pymysql.connect(user='root',password='root',host='localhost',database='Humanrexx1')
+cnx=pymysql.connect(user='root',password='root',host='localhost',database='admin_panel')
 if cnx:
         print('localhost connected')
 cur=cnx.cursor()
@@ -53,16 +53,16 @@ def readPacket1():
                 print (ex)
         srow=str(row[0])
         #print (type(row))
-        print (srow)
+        #print (srow)
         #print 'row is ',type(srow)
         v=binascii.unhexlify(srow)
-        print ('v is',v)
-        print ('v_len is',len(v))
+        #print ('v is',v)
+        #print ('v_len is',len(v))
         form1='B'* 534
         ret1=[]
         ret1.extend(struct.unpack(form1, v))
         x=ret1
-        print (x)
+       # print (x)
         s = struct.pack(pack_str, *x)
         ser.write(s)
         if store(storeid):

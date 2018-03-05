@@ -103,10 +103,11 @@
 
                           <?php echo $this->session->userdata('name');?>
 
+
                           <div class="table-responsive table-md">
                               <table class="table text-center table-bordered table-striped">
                                 <tbody>
-                                  <tr>
+                                  <tr class="active">
                                     <td><strong>Staff ID<strong></td>
                                     <td><?php echo $staff_id ?></td>
                                   </tr>
